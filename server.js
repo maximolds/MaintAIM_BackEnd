@@ -2,9 +2,7 @@ const express = require("express");
 const mysql2 = require('mysql2');
 const cors = require('cors');
 const path = require('path');
-const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const db = require('./models');
@@ -12,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(cookieParser());
+
 app.use(bodyParser.json())
 app.use(session({
     secret: "secret",
