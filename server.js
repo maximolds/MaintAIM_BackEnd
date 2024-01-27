@@ -3,6 +3,7 @@ const mysql2 = require('mysql2');
 const cors = require('cors');
 const path = require('path');
 const session = require("express-session");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const db = require('./models');
