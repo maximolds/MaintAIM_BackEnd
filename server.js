@@ -5,6 +5,7 @@ const path = require('path');
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const db = require('./models');
 const app = express();
@@ -50,7 +51,7 @@ const crane14CheckListRouter = require('./routes/Crane14CheckList');
 app.use('/crane14checklist', crane14CheckListRouter)
 
 db.sequelize.sync().then(() => {
-    app.listen(3001, () => {
+    app.listen(process.env.PORT || 3001, () => {
         console.log(`Server is running on port 3001`)
     })
 })
