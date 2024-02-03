@@ -82,4 +82,15 @@ router.get("/auth", validateToken, (req, res) => {
     res.json(req.user);
 });
 
+router.delete("/:userId", async (req, res) => {
+    const userId = req.params.userId;
+    await Users.destroy({
+      where: {
+        id: userId,
+      },
+    });
+  
+    res.json("DELETED SUCCESSFULLY");
+  });
+
 module.exports = router
